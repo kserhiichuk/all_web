@@ -60,6 +60,7 @@ bot.on('message', async (msg) => {
       const result = await model.generateContent(msg.text);
       bot.sendMessage(msg.chat.id, result.response.text());
     } catch (err) {
+      console.error('Gemini API Error:', err.message);
       bot.sendMessage(msg.chat.id, 'Помилка при зверненні до Gemini');
     }
   }
